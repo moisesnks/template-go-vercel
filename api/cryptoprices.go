@@ -3,7 +3,6 @@ package handler
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -55,25 +54,10 @@ func getCryptoPrices() map[string]float64 {
 // función serverless que maneja las solicitudes HTTP a la ruta /cryptoprices
 
 func Cryptoprices (w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/cryptoprices" {
-		http.NotFound(w, r)
-		return
-	}
-
 	prices := getCryptoPrices()
 
-	response := map[string]interface{}{
-		"prices": prices,
-	}
-
-	jsonData, err := json.Marshal(response)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("Error al convertir a JSON: %v", err), http.StatusInternalServerError)
-		return
-	}
-
 	w.Header().Set("Content-Type", "application/json")
-	w.Write(jsonData)
+	json.NewEncoder(w).Encode(prices)
 }
 
 

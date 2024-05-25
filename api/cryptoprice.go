@@ -53,29 +53,22 @@ func getSingleCryptoPrice(symbol string) (float64, error) {
 
 func Cryptoprice (w http.ResponseWriter, r *http.Request) {
 	symbol := r.URL.Query().Get("symbol")
+
 	if symbol == "" {
-		http.Error(w, "Symbol parameter is missing", http.StatusBadRequest)
+		http.Error(w, "Missing symbol parameter", http.StatusBadRequest)
 		return
 	}
 
 	price, err := getSingleCryptoPrice(symbol)
+
 	if err != nil {
-		http.Error(w, fmt.Sprintf("Error al obtener el precio: %v", err), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	response := map[string]interface{}{
-		"symbol": symbol,
-		"price":  price,
-	}
-
-	jsonData, err := json.Marshal(response)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("Error al convertir a JSON: %v", err), http.StatusInternalServerError)
-		return
-	}
+	response := map[string]float64{symbol: price}
 
 	w.Header().Set("Content-Type", "application/json")
-	w.Write(jsonData)
+	json.NewEncoder(w).Encode(response)
 }
 

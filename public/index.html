@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>template-go-vercel</title>
-    <style>
-      *,
-      :after,
-      :before {
-        box-sizing: border-box;
-        border: 0 solid;
-      }
-      html {
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-          Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-      }
-      body {
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        max-width: 48rem;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      h1 {
-        font-size: 1.6285714em;
-        margin-top: 0.8em;
-        margin-bottom: 0.8em;
-        line-height: 1.4;
-      }
-
-      a {
-        display: block;
-        font-size: 1.2857143em;
-        margin-top: 1.5555556em;
-        margin-bottom: 0.4444444em;
-        line-height: 1.5555556;
-        text-decoration: underline;
-        font-weight: 500;
-        color: #111827;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Serverless Functions made with Go!</h1>
-    <h1>For FREE on Vercel.com</h1>
-    <br />
-    <a href="/api/hello"> Serverless Function print "Hello World!" </a>
-      Serverless Function to show user infos [IP, user-agent, accept-language]
-    </a>
-    <br />
-    <a href="/api/cryptoprice"> Serverless Function to get the current price of Bitcoin </a>
-    <br />
-    <a href="/api/cryptoprice/?symbol=ETH"> Serverless Function to get the current price of Ethereum </a>
-    <br />
-    <a
-      href="https://github.com/riccardogiorato/template-go-vercel"
-      rel="noopener noreferrer"
-      target="_blank"
-      style="color: rgb(59, 130, 246)"
-    >
-      Created by el xulapi
-    </a>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serverless Functions with Go on Vercel</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2.5rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      background-color: #f9fafb;
+      color: #333;
+    }
+    h1 {
+      font-size: 2em;
+      margin: 1em 0;
+      color: #111827;
+      text-align: center;
+    }
+    a {
+      display: block;
+      font-size: 1.2em;
+      margin: 1.5em 0;
+      text-decoration: none;
+      color: #1d4ed8;
+      text-align: center;
+      background-color: #e0f2fe;
+      padding: 0.5em;
+      border-radius: 0.5em;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a:hover {
+      background-color: #93c5fd;
+      color: #1e3a8a;
+    }
+    .footer {
+      margin-top: 2em;
+      text-align: center;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Serverless Functions made with Go!</h1>
+  <h1>For FREE on Vercel.com</h1>
+  <a href="/api/hello">Serverless Function print "Hello World!"</a>
+  <p class="footer">Serverless Function to show user infos [IP, user-agent, accept-language]</p>
+  <a href="/api/cryptoprices">Serverless Function to get the current price of Bitcoin and Ethereum</a>
+  <a href="/api/cryptoprice/?symbol=ETH">Serverless Function to get the current price of Ethereum</a>
+  <a href="https://github.com/riccardogiorato/template-go-vercel" target="_blank" rel="noopener noreferrer">
+    Created by el xulapi
+  </a>
+</body>
 </html>
